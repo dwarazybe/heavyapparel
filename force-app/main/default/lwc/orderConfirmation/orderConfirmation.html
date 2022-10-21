@@ -1,0 +1,15 @@
+<template>
+	<div class="main-container">
+		<div class="big-text-container">
+			<span>{label.HA_Order_Submitted_Success}</span>
+		</div>
+        <template if:true={orderNumberLoaded}>
+            <div class="order-number-container">
+                <span>{label.HA_Order_Number}: {orderNumber}</span>
+            </div>
+        </template>
+		<div class="info-container">
+			<span>{label.HA_Order_Submitted_Info}</span>
+		</div>
+	</div>
+</template>

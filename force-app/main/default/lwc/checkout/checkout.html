@@ -1,0 +1,44 @@
+<template>
+    <template if:true={isLoading}>
+        <div class="spinner-container">
+            <div role="status" class="slds-spinner slds-spinner_medium slds-spinner_brand">
+                <span class="slds-assistive-text">{label.HA_Loading}</span>
+                <div class="slds-spinner__dot-a"></div>
+                <div class="slds-spinner__dot-b"></div>
+            </div>
+        </div>
+    </template>
+    <template if:true={error}>
+        <div class="slds-notify slds-notify_alert slds-alert_error slds-m-bottom_x-small" role="alert">
+            <h2>{error}</h2>
+        </div>
+    </template>
+    <div class="main-container">
+        <lightning-input-address
+            address-label="Address"
+            street-label="Street"
+            city-label="City"
+            country-label="Country"
+            province-label="State"
+            postal-code-label="Postal Code"
+            street={address.street}
+            city={address.city}
+            country={address.country}
+            province={address.province}
+            postal-code={address.postalCode}
+            onchange={handleAddressChange}
+            country-options={countryOptions}
+            required
+            field-level-help="Billing and Shipping address for your order">
+        </lightning-input-address>
+        <lightning-radio-group name="radioGroup"
+            label="Payment Method"
+            options={paymentOptions}
+            value={paymentMethod}
+            type="radio"
+            onchange={handlePaymentMethodChange}
+            required>
+        </lightning-radio-group>
+        <button class="proceed-button" onclick={handleProceed}>{label.HA_Proceed}</button>
+    </div>
+</template>

@@ -1,0 +1,69 @@
+.main-container {
+    font-size: 16px;
+}
+.spinner-container {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.92));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    z-index: 9999;
+}
+.guest-user-info-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10%;
+    gap: 10px;
+}
+.guest-user-info-text {
+    font-size: 18px;
+    margin-bottom: 14px;
+}
+.address-label {
+    font-weight: bold;
+}
+.country-and-state-container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.country-container {
+    width: 59%;
+}
+.state-container {
+    width: 39%;
+}
+.payment-choice-container {
+    width: 100%;
+    height: 100px;
+    display: flex;
+    justify-content: space-around;
+}
+.payment-option {
+    width: 220px;
+    padding: 20px;
+    height: 100%;
+    border-radius: 8px;
+    border: 1px solid #444444;
+    display: flex;
+    align-items: center;
+}
+.proceed-button {
+    float: right;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+    text-transform: capitalize;
+    width: 240px;
+    height: 48px;
+    font-size: 18px;
+    border-radius: 4px;
+}
+.proceed-button:hover {
+    background-color: #222222;
+}
