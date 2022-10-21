@@ -1,0 +1,52 @@
+<template>
+	<div class="main-container">
+		<template if:false={detailsToShow}>
+			<div class="slds-align_absolute-center">
+				<span class="no-details-text">{label.HA_No_Details}</span>
+			</div>
+		</template>
+        <template if:true={detailsToShow}>
+            <div class="details-container">
+                <div class="title-container">
+                    <span>{label.HA_Details}</span>
+                </div>
+                <div class="content-container">
+                    <div class="slds-grid slds-wrap">
+                        <div class="detail-tile slds-col slds-size_1-of-2">
+                            <div class="label-container">
+                                <span>{label.HA_Brand}</span>
+                            </div>
+                            <div class="data-container">
+                                <span>{productDetails.Brand__c}</span>
+                            </div>
+                        </div>
+                        <div class="detail-tile slds-col slds-size_1-of-2">
+                            <div class="label-container">
+                                <span>{label.HA_Properties}</span>
+                            </div>
+                            <div class="data-container">
+                                <span>{productDetails.Properties__c}</span>
+                            </div>
+                        </div>
+                        <div class="detail-tile slds-col slds-size_1-of-2">
+                            <div class="label-container">
+                                <span>{label.HA_Material}</span>
+                            </div>
+                            <div class="data-container">
+                                <span>{productDetails.Material__c}</span>
+                            </div>
+                        </div>
+                        <div class="detail-tile slds-col slds-size_1-of-2">
+                            <div class="label-container">
+                                <span>{label.HA_Certification}</span>
+                            </div>
+                            <div class="data-container">
+                                <span>{productDetails.Certification__c}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </template>
+	</div>
+</template>

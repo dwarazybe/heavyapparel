@@ -1,0 +1,42 @@
+<template>
+	<div class="main-container">
+		<div class="title-container">
+			<span>{label.HA_Community_Reviews}</span>
+		</div>
+		<template if:true={averageRating}>
+			<div class="average-container">
+				<span>{label.HA_Average_Rating}&nbsp;</span>
+				<span class="average-value">{averageRating}</span>
+			</div>
+		</template>
+		<template if:false={reviewsToShow}>
+			<div class="slds-align_absolute-center">
+				<span class="no-reviews-text">{label.HA_No_Reviews}</span>
+			</div>
+        </template>
+        <template if:true={reviewsToShow}>
+			<div class="reviews-container">  
+                <template for:each={productReviews} for:item="productReview">
+				<div class="review-container" key={productReview.Id}>
+					<div class="header-container">
+						<div class="userinfo-container">
+							<lightning-avatar class="avatar" variant="circle" src={productReview.CreatedBy.SmallPhotoUrl}></lightning-avatar>
+							<div class="username-container">
+								<span class="username">
+                                    {productReview.CreatedBy.Name}
+                                </span>
+							</div>
+						</div>
+						<div class="rating-container">
+							<span class="rating">{productReview.Rating__c}/5</span>
+						</div>
+					</div>
+					<div class="content-container">
+						{productReview.Comment__c}
+					</div>
+				</div>
+                </template>
+			</div>
+		</template>
+	</div>
+</template>

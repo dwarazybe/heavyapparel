@@ -1,0 +1,12 @@
+.main-container {
+    font-family: 'Salesforce Sans', Arial, sans-serif;
+    font-size: 16px;
+    color: black;
+    background-color: white;
+    text-align: justify;
+    margin-right: 10%;
+}
+.label {
+    font-weight: bold;
+    margin-bottom: 4px;
+}

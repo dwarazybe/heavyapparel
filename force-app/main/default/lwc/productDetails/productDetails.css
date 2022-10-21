@@ -1,0 +1,35 @@
+.main-container {
+    font-family: 'Salesforce Sans', Arial, sans-serif;
+    font-size: 16px;
+    color: black;
+    background-color: white;
+    width: 100%;
+}
+.no-details-text {
+    padding: 50px;
+    color: #666666;
+}
+.details-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.title-container {
+    font-size: 24px;
+    padding: 10px;
+    margin-top: 20px;
+}
+.content-container {
+    padding: 0 20px 20px 20px;
+    width: 90%;
+    height: auto;
+    margin: 10px;
+}
+.detail-tile {
+    width: 48%;
+    margin: 1%;
+}
+.label-container {
+    font-weight: bold;
+}
