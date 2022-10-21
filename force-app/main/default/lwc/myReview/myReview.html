@@ -1,0 +1,103 @@
+<template>
+    <template if:true={isLoading}>
+        <div class="spinner-container">
+            <div role="status" class="slds-spinner slds-spinner_medium slds-spinner_brand">
+                <span class="slds-assistive-text">{label.HA_Loading}</span>
+                <div class="slds-spinner__dot-a"></div>
+                <div class="slds-spinner__dot-b"></div>
+            </div>
+        </div>
+    </template>
+    <div class="main-container">
+		<div class="title-container">
+			<span>{label.HA_My_Review}</span>
+		</div>
+        <template if:true={error}>
+            <div class="slds-notify slds-notify_alert slds-alert_error slds-m-bottom_x-small" role="alert">
+                <h2>{error}</h2>
+            </div>
+        </template>
+        <template if:false={review}>
+			<div class="reviews-container">
+                <div class="user-review-container">
+                    <div class="header-container">
+                        <template if:true={user}>
+                            <div class="userinfo-container">
+                                <lightning-avatar class="avatar" variant="circle" src={user.SmallPhotoUrl}></lightning-avatar>
+                                <div class="username-container">
+                                    <span class="username">
+                                        {user.Name}
+                                    </span>
+                                </div>
+                            </div>
+                        </template>
+                    </div>
+                    <div class="rating-combobox-container">
+                        <lightning-combobox name="rating" 
+                                            label="Rating"
+                                            value={rating}
+                                            placeholder="Choose on a scale of 1 to 5"
+                                            options={ratingOptions}
+                                            onchange={handleRatingChange}
+                                            required>
+                        </lightning-combobox>
+                    </div>
+                    <div class="content-container">
+                        <lightning-textarea
+                                         label="Comment" 
+                                         placeholder="Type your comment about this product..." 
+                                         value={comment}
+                                         onchange={handleCommentChange}
+                                         max-length="255"
+                                         required>
+                        </lightning-textarea>
+                    </div>
+                    <div class="confirm-button-container">
+                        <template if:true={editModeEnabled}>
+                            <div class="cancel-button" onclick={handleCancelEditReview}>
+                                <span>{label.HA_Cancel}</span>
+                            </div>
+                            <div class="confirm-button" onclick={handleEditReview}>
+                                <span>{label.HA_Confirm}</span>
+                            </div>
+                        </template>
+                        <template if:false={editModeEnabled}>
+                            <div class="confirm-button" onclick={handlePostReview}>
+                                <span>{label.HA_Post}</span>
+                            </div>
+                        </template>
+                    </div>
+                </div>
+            </div>
+        </template>
+        <template if:true={review}>
+            <div class="reviews-container">
+                <div class="user-review-container">
+                    <div class="header-container">
+                        <div class="userinfo-container">
+                            <lightning-avatar class="avatar" variant="circle" src={review.CreatedBy.SmallPhotoUrl}></lightning-avatar>
+                            <div class="username-container">
+                                <span class="username">
+                                    {review.CreatedBy.Name}
+                                </span>
+                                <template if:false={reviewApproved}>
+                                    <span class="status">
+                                        {review.Status__c}
+                                    </span>
+                                </template>
+                            </div>
+                        </div>
+                        <div class="rating-container">
+                            <span class="delete" onclick={handleEdit}>{label.HA_Edit}</span>
+                            <span class="delete" onclick={handleDelete}>{label.HA_Delete}</span>
+                            <span class="rating">{review.Rating__c}/5</span>
+                        </div>
+                    </div>
+                    <div class="content-container">
+                        {review.Comment__c}
+                    </div>
+                </div>
+            </div>
+        </template>
+    </div>
+</template>
